@@ -38,10 +38,9 @@ void insert_array_at(Dynamiv_array*array,int element,size_t index){
     {
         return;
     }
-    for (int i = array->length; i > index; i--)
+    for (size_t i = array->length; i > index; i--)
     {
-        array[i]=array[i-1];
-
+        array->arr[i] = array->arr[i - 1];
     }
     array->arr[index]=element;
     array->length++;
@@ -57,10 +56,9 @@ bool delete_array_at(Dynamiv_array*array,size_t index,int *element){
 
     }
     *element=array->arr[index];
-    for (int i = index; i < array->length-1; i++)
+    for (size_t i = index; i < array->length - 1; i++)
     {
-       array[i]=array[i+1];
-    //    return true;
+        array->arr[i] = array->arr[i + 1];
     }
     array->length--;
     return true;
@@ -79,7 +77,7 @@ void printf_array(Dynamiv_array*array){
     }
     for (int i = 0; i <array->length; i++)
     {
-        printf("%d",array->arr[i]);
+        printf("%d ", array->arr[i]);
     }
     printf("\n");
     
